@@ -1,0 +1,131 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  height: 100%;
+}
+
+@media screen and (mix-width: 768px) {
+  .home-container {
+    width: 100vw;
+  }
+}
+
+.search-container {
+  background-color: #2f2f43;
+  margin-right: 24px;
+  margin-left: 24px;
+  margin-top: 24px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-radius: 8px;
+}
+@media screen and (min-width: 768px) {
+  .search-container {
+    height: 72px;
+    width: 824px;
+  }
+}
+
+.search-input {
+  background-color: #2f2f43;
+  border-color: transparent;
+  color: #94a3b8;
+  height: 16px;
+  margin-top: 14px;
+  margin-left: 8px;
+}
+@media screen and (min-width: 768px) {
+  .search-input {
+    margin-top: 24px;
+  }
+}
+
+.search-icon {
+  color: #94a3b8;
+  margin-left: 16px;
+  margin-top: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-icon {
+    margin-top: 24px;
+  }
+}
+.mobile-nav-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+  color: #ffffff;
+  font-family: Roboto;
+  list-style-type: none;
+}
+.mobile-home-text {
+  font-size: 16px;
+}
+.mobile-about-text {
+  font-size: 16px;
+  margin-left: 24px;
+}
+.close-button {
+  background-color: transparent;
+  border-color: transparent;
+
+  border-radius: 20px;
+}
+.close-icon {
+  background-color: #ffffff;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  margin-left: 174px;
+}
+.mobile-nav-content-items {
+  display: flex;
+}
+.failed-img {
+}
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #e2e8f0;
+  font-family: Roboto;
+}
+.failure-para {
+  color: #94a3b8;
+}
+.home-button {
+  background-color: #2563eb;
+  border-radius: 8px;
+  color: #ffffff;
+  width: 66px;
+  height: 32px;
+}
+.covid-loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.link-item {
+  text-decoration: none;
+  color: #ffffff;
+}
+.drop-down-items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 824px;
+}

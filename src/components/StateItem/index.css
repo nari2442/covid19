@@ -1,0 +1,26 @@
+.state-item-details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Roboto;
+  list-style-type: none;
+}
+.state-name {
+  width: 120px;
+  margin-bottom: 15px;
+}
+.confirmed-count {
+  color: #ff073a;
+}
+.active-count {
+  color: #007bff;
+}
+.recovered-count {
+  color: #28a745;
+}
+.deceased-count {
+  color: #6c757d;
+}
+.population-count {
+  color: #94a3b8;
+}

@@ -1,0 +1,234 @@
+.state-name-text {
+  color: #0ea5e9;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+.state-details-container {
+  background-color: #161625;
+  height: 100%;
+  width: 100vw;
+}
+.total-cases-container {
+  display: flex;
+}
+.state-confirmed-container {
+  width: 264px;
+  height: 232px;
+  margin-left: 150px;
+  top: 308px;
+  background: #331427;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.state-active-container {
+  width: 264px;
+  height: 232px;
+  margin-left: 10px;
+  top: 308px;
+  background-color: transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.state-recovered-container {
+  width: 264px;
+  height: 232px;
+  margin-left: 10px;
+  top: 308px;
+  background-color: transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.state-deceased-container {
+  width: 264px;
+  height: 232px;
+  margin-left: 10px;
+  top: 308px;
+  background-color: transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.state-confirmed-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ff073a;
+}
+.state-active-text {
+  width: 45px;
+  height: 24px;
+  left: 553px;
+  top: 356px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #007bff;
+}
+.state-recovered-text {
+  width: 76px;
+  height: 24px;
+  left: 832px;
+  top: 356px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #28a745;
+}
+.state-deceased-text {
+  width: 71px;
+  height: 24px;
+  left: 1129px;
+  top: 356px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #6c757d;
+}
+.round {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ff073a;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.state-total-confirmed {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+
+  color: #ff073a;
+}
+.state-total-recovered {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+
+  color: #28a745;
+}
+.state-total-deceased {
+  top: 474px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+
+  color: #6c757d;
+}
+.top-districts-heading {
+  width: 181px;
+  height: 48px;
+  margin-left: 150px;
+  margin-top: 64px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+
+  color: #ff073a;
+}
+.each-district-name {
+  width: 99px;
+  height: 19px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #94a3b8;
+}
+.each-district-list {
+  margin-right: 60px;
+  margin-bottom: 60px;
+}
+.district-names-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+.tested {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+
+  color: #94a3b8;
+}
+.tested-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 150px;
+}
+.name-container {
+  width: 312px;
+  height: 64px;
+  margin-left: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(2, 132, 199, 0.16);
+  border-radius: 32px;
+}
+
+.name-last-updated-container {
+  display: flex;
+  flex-direction: column;
+}
+.name-tested-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 74px;
+  margin-bottom: 64px;
+}
+.last-updated-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  margin-left: 144px;
+  color: #cbd5e1;
+}

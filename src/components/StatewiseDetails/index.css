@@ -1,0 +1,39 @@
+.statewise-details-container {
+  background-color: #1e1e30;
+  border: 1px solid #475569;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 12px;
+  color: #f8fafc;
+  font-family: Roboto;
+  width: 839px;
+  padding: 10px;
+  margin-top: 106px;
+  width: 839px;
+}
+@media screen and (min-width: 768px) {
+  .statewise-details-container {
+    width: 1146px;
+  }
+}
+
+.state-details-headings-container {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+.details-heading {
+  font-size: 16px;
+  margin-left: 40px;
+}
+.confirmed-heading {
+  font-size: 16px;
+  margin-left: 0px;
+}
+.sorting-icons {
+  margin-left: 0px;
+}
+.sort-button {
+  background-color: transparent;
+  border-color: transparent;
+  margin-top: 20px;
+}

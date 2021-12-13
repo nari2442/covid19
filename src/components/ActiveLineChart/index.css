@@ -1,0 +1,14 @@
+.active-line-graph-container {
+  width: 1146px;
+  height: 328px;
+  left: 150px;
+  top: 1747px;
+  color: #007bff;
+  background-color: #132240;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  margin: 10px;
+}
