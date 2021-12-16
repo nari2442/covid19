@@ -268,13 +268,31 @@ class Home extends Component {
 
   changeToAscending = () => {
     const {eachStateDataList} = this.state
-    const ascendingOrderList = eachStateDataList.map(eachState =>
-      eachState.name.sort(),
-    )
-    console.log(ascendingOrderList)
+    eachStateDataList.sort((a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        return -1
+      }
+      if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        return 1
+      }
+      return 0
+    })
+    this.setState({eachStateDataList})
   }
 
-  changeToDescending = () => {}
+  changeToDescending = () => {
+    const {eachStateDataList} = this.state
+    eachStateDataList.sort((a, b) => {
+      if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        return -1
+      }
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        return 1
+      }
+      return 0
+    })
+    this.setState({eachStateDataList})
+  }
 
   renderSuccessView = () => {
     const {

@@ -21,9 +21,125 @@ import TestedLineChart from '../TestedLineChart'
 
 import './index.css'
 
+const statusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN  PROGRESS',
+}
+
 class GraphsData extends Component {
+  state = {
+    confirmedGraphData: [],
+    activeGraphData: [],
+    recoveredGraphData: [],
+    deceasedGraphData: [],
+    testedGraphData: [],
+    vaccinatedGraphData: [],
+    activeStatus: statusConstants.initial,
+  }
+
+  componentDidMount = () => {
+    this.getGraphsData()
+  }
+
+  getGraphsData = async () => {
+    this.setState({activeStatus: statusConstants.inProgress})
+    const {match} = this.props
+    const {params} = match
+    const {stateCode} = params
+    const apiUrl = `https://apis.ccbp.in/covid19-timelines-data/${stateCode}`
+    const options = {
+      method: 'GET',
+    }
+    const response = await fetch(apiUrl, options)
+    const jsonData = await response.json()
+    if (response.ok === true) {
+      this.setState({activeStatus: statusConstants.success})
+      const datesArray = Object.keys(jsonData[stateCode].dates)
+
+      const lastUpdateDate = datesArray[datesArray.length - 1]
+
+      const confirmedBarData = datesArray.map(date => ({
+        resultDate: date,
+        count: jsonData[stateCode].dates[date].total.confirmed,
+      }))
+
+      const updatedConfirmedBarGraphData = confirmedBarData.splice(
+        confirmedBarData.length - 10,
+        confirmedBarData.length,
+      )
+
+      const recoveredBarData = datesArray.map(date => ({
+        resultDate: date,
+        count: jsonData[stateCode].dates[date].total.recovered,
+      }))
+
+      const updatedRecoveredBarGraphData = recoveredBarData.splice(
+        recoveredBarData.length - 10,
+        recoveredBarData.length,
+      )
+
+      const deceasedBarData = datesArray.map(date => ({
+        resultDate: date,
+        count: jsonData[stateCode].dates[date].total.deceased,
+      }))
+
+      const updatedDeceasedBarGraphData = deceasedBarData.splice(
+        deceasedBarData.length - 10,
+        deceasedBarData.length,
+      )
+
+      const testedBarData = datesArray.map(date => ({
+        resultDate: date,
+        count: jsonData[stateCode].dates[date].total.tested,
+      }))
+
+      const updatedTestedBarGraphData = testedBarData.splice(
+        testedBarData.length - 10,
+        testedBarData.length,
+      )
+
+      const vaccinatedBarData = datesArray.map(date => ({
+        resultDate: date,
+        count:
+          jsonData[stateCode].dates[date].total.vaccinated1 +
+          jsonData[stateCode].dates[date].total.vaccinated2,
+      }))
+
+      const updatedVaccinatedBarGraphData = vaccinatedBarData.splice(
+        vaccinatedBarData.length - 10,
+        vaccinatedBarData.length,
+      )
+
+      const activeBarData = datesArray.map(date => ({
+        resultDate: date,
+        count:
+          jsonData[stateCode].dates[date].total.confirmed -
+          (jsonData[stateCode].dates[date].total.recovered +
+            jsonData[stateCode].dates[date].total.deceased),
+      }))
+
+      const updatedActiveBarGraphData = activeBarData.splice(
+        activeBarData.length - 10,
+        activeBarData.length,
+      )
+
+      this.setState({
+        confirmedGraphData: updatedConfirmedBarGraphData,
+        activeGraphData: updatedActiveBarGraphData,
+        recoveredGraphData: updatedRecoveredBarGraphData,
+        deceasedGraphData: updatedDeceasedBarGraphData,
+        testedGraphData: updatedTestedBarGraphData,
+        vaccinatedGraphData: updatedVaccinatedBarGraphData,
+      })
+    } else {
+      this.setState({activeStatus: statusConstants.failure})
+    }
+  }
+
   renderBarGraph = () => {
-    const {confirmedGraphData} = this.props
+    const {confirmedGraphData} = this.state
     return (
       <BarChart width={1032} height={431} data={confirmedGraphData}>
         <CartesianGrid strokeDasharray="" />
@@ -49,7 +165,7 @@ class GraphsData extends Component {
       deceasedGraphData,
       testedGraphData,
       vaccinatedGraphData,
-    } = this.props
+    } = this.state
     return (
       <div>
         <h1 className="spread-trends-heading">Spread Trends</h1>
@@ -102,8 +218,22 @@ class GraphsData extends Component {
     </div>
   )
 
+  renderViews = () => {
+    const {activeStatus} = this.state
+    switch (activeStatus) {
+      case statusConstants.success:
+        return this.renderSuccessView()
+      case statusConstants.failure:
+        return this.renderFailureView()
+      case statusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
   render() {
-    return this.renderSuccessView()
+    return this.renderViews()
   }
 }
 

@@ -25,6 +25,7 @@ const StatewiseDetails = props => {
           <button
             type="button"
             className="sort-button"
+            testid="ascendingSort"
             onClick={clickAscending}
           >
             <FcGenericSortingAsc />
@@ -32,6 +33,7 @@ const StatewiseDetails = props => {
           <button
             type="button"
             className="sort-button"
+            testid="descendingSort"
             onClick={clickDescending}
           >
             <FcGenericSortingDesc />
