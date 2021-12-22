@@ -1,5 +1,7 @@
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import {AiFillCloseCircle} from 'react-icons/ai'
 import Header from '../Header'
 import Footer from '../Footer'
 import './index.css'
@@ -11,10 +13,22 @@ const statusConstants = {
 }
 
 class About extends Component {
-  state = {faqsData: [], activeStatus: statusConstants.initial}
+  state = {
+    faqsData: [],
+    activeStatus: statusConstants.initial,
+    hideNavContent: true,
+  }
 
   componentDidMount() {
     this.getAboutDetails()
+  }
+
+  showOrHideNavContent = () => {
+    this.setState(prevState => ({hideNavContent: !prevState.hideNavContent}))
+  }
+
+  clickCloseButton = () => {
+    this.setState(prevState => ({hideNavContent: !prevState.hideNavContent}))
   }
 
   getAboutDetails = async () => {
@@ -40,28 +54,54 @@ class About extends Component {
   }
 
   renderSuccessView = () => {
-    const {faqsData} = this.state
+    const {faqsData, hideNavContent} = this.state
 
     return (
-      <>
-        <Header />
-        <h1 className="about-heading">About</h1>
-        <p className="last-update">Last update on </p>
-        <p className="distribution-ready-para">
-          COVID-19 vaccines be ready for distribution
-        </p>
+      <div className="about-container">
+        <Header showOrHideNavContent={this.showOrHideNavContent} />
+        <div>
+          {hideNavContent ? (
+            ''
+          ) : (
+            <div className="mobile-nav-content-container">
+              <div className="mobile-nav-content-items">
+                <Link to="/" className="link-item">
+                  <p className="mobile-home-text">Home</p>
+                </Link>
+                <Link to="/about" className="link-item">
+                  <p className="mobile-about-text">About</p>
+                </Link>
+              </div>
 
-        <ul className="faqs-list-container" testid="faqsUnorderedList">
-          {faqsData.map(eachFaq => (
-            <li key={eachFaq.qno}>
-              <p className="question">{eachFaq.question}</p>
-              <p className="answer">{eachFaq.answer}</p>
-            </li>
-          ))}
-        </ul>
+              <button
+                type="button"
+                className="close-button"
+                onClick={this.clickCloseButton}
+              >
+                <AiFillCloseCircle className="close-icon" />
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="about-content">
+          <h1 className="about-heading">About</h1>
+          <p className="last-update">Last update on </p>
+          <p className="distribution-ready-para">
+            COVID-19 vaccines be ready for distribution
+          </p>
+
+          <ul className="faqs-list-container" testid="faqsUnorderedList">
+            {faqsData.map(eachFaq => (
+              <li key={eachFaq.qno} className="faqs-item">
+                <p className="question">{eachFaq.question}</p>
+                <p className="answer">{eachFaq.answer}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <Footer />
-      </>
+      </div>
     )
   }
 
@@ -84,7 +124,7 @@ class About extends Component {
   }
 
   render() {
-    return <div className="about-container">{this.renderViews()}</div>
+    return this.renderViews()
   }
 }
 

@@ -1,8 +1,7 @@
 .deceased-line-graph-container {
   width: 1146px;
   height: 328px;
-  left: 150px;
-  top: 1747px;
+
   color: #6c757d;
   background-color: #1c1c2b;
   display: flex;
@@ -11,4 +10,30 @@
   align-items: center;
   border-radius: 12px;
   margin: 10px;
+  margin-bottom: 32px;
+}
+.deceased-line-graph-mobile-container {
+  width: 312px;
+  height: 231px;
+
+  color: #6c757d;
+  background-color: #1c1c2b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  margin: 10px;
+  margin-bottom: 32px;
+}
+@media screen and (max-width: 768px) {
+  .deceased-line-graph-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .deceased-line-graph-mobile-container {
+    display: none;
+  }
 }

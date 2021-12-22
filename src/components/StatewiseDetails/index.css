@@ -5,17 +5,17 @@
   border-radius: 12px;
   color: #f8fafc;
   font-family: Roboto;
-  width: 839px;
-  padding: 10px;
+  width: 1146px;
   margin-top: 106px;
-  width: 839px;
-}
-@media screen and (min-width: 768px) {
-  .statewise-details-container {
-    width: 1146px;
-  }
+  padding: 10px;
 }
 
+@media screen and (max-width: 768px) {
+  .statewise-details-container {
+    width: 839px;
+    margin-left: 24px;
+  }
+}
 .state-details-headings-container {
   display: flex;
   justify-content: space-between;

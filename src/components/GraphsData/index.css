@@ -7,6 +7,14 @@
 
   color: #cbd5e1;
 }
+
+@media screen and (max-width: 768px) {
+  .spread-trends-heading {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
 .cumulative-container {
   width: 140px;
   height: 60px;
@@ -60,60 +68,32 @@
   display: flex;
 }
 
-.recovered-line-graph-container {
+@media screen and (max-width: 768px) {
+  .cumulative-daily-container {
+    display: none;
+  }
+}
+.bar-chart-container {
+  background-color: transparent;
   width: 1146px;
   height: 328px;
-  left: 150px;
-  top: 1747px;
-
-  background: #182829;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
+  margin-bottom: 90px;
 }
 
-.deceased-line-graph-container {
-  width: 1146px;
-  height: 328px;
-  left: 150px;
-  top: 1747px;
-
-  background-color: #1c1c2b;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
+.bar-chart-mobile-container {
+  background-color: transparent;
+  width: 312px;
+  height: 231px;
 }
 
-.tested-line-graph-container {
-  width: 1146px;
-  height: 328px;
-  left: 150px;
-  top: 1747px;
-  background-color: #230f41;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
+@media screen and (max-width: 768px) {
+  .bar-chart-container {
+    display: none;
+  }
 }
 
-.vaccinated-line-graph-container {
-  width: 1146px;
-  height: 328px;
-  left: 150px;
-  top: 1747px;
-  background-color: #2e1e30;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
+@media screen and (min-width: 768px) {
+  .bar-chart-mobile-container {
+    display: none;
+  }
 }

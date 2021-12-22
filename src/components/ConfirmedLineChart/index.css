@@ -1,8 +1,7 @@
 .confirmed-line-graph-container {
   width: 1146px;
   height: 328px;
-  left: 150px;
-  top: 1747px;
+
   color: #ff073a;
   background: #331427;
   display: flex;
@@ -11,4 +10,32 @@
   align-items: center;
   border-radius: 12px;
   margin: 10px;
+  margin-bottom: 32px;
+}
+
+.confirmed-line-graph-mobile-container {
+  width: 312px;
+  height: 213px;
+
+  color: #ff073a;
+  background: #331427;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  margin: 10px;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .confirmed-line-graph-mobile-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .confirmed-line-graph-container {
+    display: none;
+  }
 }

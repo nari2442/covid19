@@ -10,7 +10,9 @@ const Header = props => {
   return (
     <nav className="header-container">
       <Link to="/" className="link-item">
-        <h1 className="covid-heading">COVID19INDIA</h1>
+        <h1 className="covid-heading">
+          COVID19<span className="india-text">INDIA</span>
+        </h1>
       </Link>
 
       <button
@@ -24,7 +26,7 @@ const Header = props => {
         <Link to="/" className="link-item">
           <li className="home-text">Home</li>
         </Link>
-        <li>Vaccination</li>
+
         <Link to="/about" className="link-item">
           <li className="about-text">About</li>
         </Link>

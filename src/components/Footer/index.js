@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {VscGithubAlt} from 'react-icons/vsc'
 import {FiInstagram} from 'react-icons/fi'
 import {FaTwitter} from 'react-icons/fa'
@@ -5,7 +6,12 @@ import './index.css'
 
 const Footer = () => (
   <div className="footer-container">
-    <h1 className="covid-heading">COVID19INDIA</h1>
+    <Link to="/" className="link-item">
+      <h1 className="footer-covid-heading">
+        COVID19<span className="footer-india-text">INDIA</span>
+      </h1>
+    </Link>
+
     <p className="footer-para">
       We stand with everyone fighting on the front lines
     </p>

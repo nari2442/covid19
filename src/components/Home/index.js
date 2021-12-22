@@ -302,44 +302,73 @@ class Home extends Component {
       totalDeceased,
       eachStateDataList,
       dropDownList,
+      hideNavContent,
     } = this.state
 
     return (
-      <>
-        <div className="search-container">
-          <BsSearch className="search-icon" />
-          <input
-            type="search"
-            className="search-input"
-            placeholder="Enter the state"
-            onChange={this.changeSearchInput}
-          />
-        </div>
-        <ul
-          className="drop-down-items-container"
-          testid="searchResultsUnorderedList"
-        >
-          {dropDownList.map(eachState => (
-            <StatesDropDown
-              dropDownDetails={eachState}
-              key={eachState.stateCode}
-            />
-          ))}
-        </ul>
+      <div className="home-container">
+        <Header showOrHideNavContent={this.showOrHideNavContent} />
+        <div>
+          {hideNavContent ? (
+            ''
+          ) : (
+            <div className="mobile-nav-content-container">
+              <div className="mobile-nav-content-items">
+                <Link to="/" className="link-item">
+                  <p className="mobile-home-text">Home</p>
+                </Link>
+                <Link to="/about" className="link-item">
+                  <p className="mobile-about-text">About</p>
+                </Link>
+              </div>
 
-        <TotalData
-          totalConfirmed={totalConfirmed}
-          totalActive={totalActive}
-          totalRecovered={totalRecovered}
-          totalDeceased={totalDeceased}
-        />
-        <StatewiseDetails
-          eachStateDataList={eachStateDataList}
-          changeToAscending={this.changeToAscending}
-          changeToDescending={this.changeToDescending}
-        />
-        <Footer />
-      </>
+              <button
+                type="button"
+                className="close-button"
+                onClick={this.clickCloseButton}
+              >
+                <AiFillCloseCircle className="close-icon" />
+              </button>
+            </div>
+          )}
+          <div className="search-align">
+            <div className="search-container">
+              <BsSearch className="search-icon" />
+              <input
+                type="search"
+                className="search-input"
+                placeholder="Enter the state"
+                onChange={this.changeSearchInput}
+              />
+            </div>
+          </div>
+
+          <ul
+            className="drop-down-items-container"
+            testid="searchResultsUnorderedList"
+          >
+            {dropDownList.map(eachState => (
+              <StatesDropDown
+                dropDownDetails={eachState}
+                key={eachState.stateCode}
+              />
+            ))}
+          </ul>
+
+          <TotalData
+            totalConfirmed={totalConfirmed}
+            totalActive={totalActive}
+            totalRecovered={totalRecovered}
+            totalDeceased={totalDeceased}
+          />
+          <StatewiseDetails
+            eachStateDataList={eachStateDataList}
+            changeToAscending={this.changeToAscending}
+            changeToDescending={this.changeToDescending}
+          />
+          <Footer />
+        </div>
+      </div>
     )
   }
 
@@ -381,43 +410,7 @@ class Home extends Component {
   }
 
   render() {
-    const {
-      eachStateDataList,
-
-      hideNavContent,
-    } = this.state
-
-    return (
-      <>
-        <Header showOrHideNavContent={this.showOrHideNavContent} />
-        <div div className="home-container">
-          {hideNavContent ? (
-            ''
-          ) : (
-            <div className="mobile-nav-content-container">
-              <div className="mobile-nav-content-items">
-                <Link to="/" className="link-item">
-                  <p className="mobile-home-text">Home</p>
-                </Link>
-                <Link to="/about" className="link-item">
-                  <p className="mobile-about-text">About</p>
-                </Link>
-              </div>
-
-              <button
-                type="button"
-                className="close-button"
-                onClick={this.clickCloseButton}
-              >
-                <AiFillCloseCircle className="close-icon" />
-              </button>
-            </div>
-          )}
-
-          {this.renderViews()}
-        </div>
-      </>
-    )
+    return this.renderViews()
   }
 }
 

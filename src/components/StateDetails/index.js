@@ -264,82 +264,83 @@ class StateDetails extends Component {
     return (
       <div className="state-details-container">
         <Header />
-        <div className="name-tested-container">
-          <div className="name-lastupdated-container">
-            <div className="name-container">
-              <h1 className="state-name-text">{name}</h1>
+        <div className="state-details-content">
+          <div className="name-tested-container">
+            <div className="name-lastupdated-container">
+              <div className="name-container">
+                <h1 className="state-name-text">{name}</h1>
+              </div>
+              <p className="last-updated-text">
+                last updated on {lastUpdateDate}
+              </p>
             </div>
-            <p className="last-updated-text">
-              last updated on {lastUpdateDate}
-            </p>
+            <div className="tested-container">
+              <p className="tested">Tested</p>
+              <p className="tested-count">{tested}</p>
+            </div>
           </div>
-          <div className="tested-container">
-            <p className="tested">Tested</p>
-            <p className="tested">{tested}</p>
-          </div>
-        </div>
 
-        <div className="total-cases-container">
-          <div
-            className="state-confirmed-container"
-            testid="stateSpecificConfirmedCasesContainer"
-          >
-            <p className="state-confirmed-text">Confirmed</p>
-            <div className="round">
+          <div className="total-cases-container">
+            <div
+              className="state-confirmed-container"
+              testid="stateSpecificConfirmedCasesContainer"
+            >
+              <p className="state-confirmed-text">Confirmed</p>
+              <div className="round">
+                <img
+                  src="https://res.cloudinary.com/dxv46yb6u/image/upload/v1636638667/Vectorright_1_jj48g9.png"
+                  alt="state specific confirmed cases pic"
+                />
+              </div>
+              <p className="state-total-confirmed">{confirmed}</p>
+            </div>
+            <div
+              className="state-active-container"
+              testid="stateSpecificActiveCasesContainer"
+            >
+              <p className="state-active-text">Active</p>
               <img
-                src="https://res.cloudinary.com/dxv46yb6u/image/upload/v1636638667/Vectorright_1_jj48g9.png"
-                alt="state specific confirmed cases pic"
+                src="https://res.cloudinary.com/dxv46yb6u/image/upload/v1636638409/protection_1active_yjy72v.png"
+                alt="state specific active cases pic"
               />
+              <p className="state-total-confirmed">{active}</p>
             </div>
-            <p className="state-total-confirmed">{confirmed}</p>
+            <div
+              className="state-recovered-container"
+              testid="stateSpecificRecoveredCasesContainer"
+            >
+              <p className="state-recovered-text">Recovered</p>
+              <img
+                src="https://res.cloudinary.com/dxv46yb6u/image/upload/v1636639291/recovered_1_glek4z.png"
+                alt="state specific recovered cases pic"
+              />
+              <p className="state-total-recovered">{recovered}</p>
+            </div>
+            <div
+              className="state-deceased-container"
+              testid="stateSpecificDeceasedCasesContainer"
+            >
+              <p className="state-deceased-text">Deceased</p>
+              <img
+                src="https://res.cloudinary.com/dxv46yb6u/image/upload/v1636639364/breathing_1_hst8zn.png"
+                alt="state specific deceased cases pic"
+              />
+              <p className="state-total-deceased">{deceased}</p>
+            </div>
           </div>
-          <div
-            className="state-active-container"
-            testid="stateSpecificActiveCasesContainer"
+          <h1 className="top-districts-heading">Top Districts</h1>
+          <ul
+            className="district-names-container"
+            testid="topDistrictsUnorderedList"
           >
-            <p className="state-active-text">Active</p>
-            <img
-              src="https://res.cloudinary.com/dxv46yb6u/image/upload/v1636638409/protection_1active_yjy72v.png"
-              alt="state specific active cases pic"
-            />
-            <p className="state-total-confirmed">{active}</p>
-          </div>
-          <div
-            className="state-recovered-container"
-            testid="stateSpecificRecoveredCasesContainer"
-          >
-            <p className="state-recovered-text">Recovered</p>
-            <img
-              src="https://res.cloudinary.com/dxv46yb6u/image/upload/v1636639291/recovered_1_glek4z.png"
-              alt="state specific recovered cases pic"
-            />
-            <p className="state-total-recovered">{recovered}</p>
-          </div>
-          <div
-            className="state-deceased-container"
-            testid="stateSpecificDeceasedCasesContainer"
-          >
-            <p className="state-deceased-text">Deceased</p>
-            <img
-              src="https://res.cloudinary.com/dxv46yb6u/image/upload/v1636639364/breathing_1_hst8zn.png"
-              alt="state specific deceased cases pic"
-            />
-            <p className="state-total-deceased">{deceased}</p>
-          </div>
+            {topDistricts.map(eachDistrict => (
+              <li className="each-district-list" key={eachDistrict}>
+                <p className="each-district-name">{eachDistrict}</p>
+              </li>
+            ))}
+          </ul>
+          <GraphsData />
         </div>
-        <h1 className="top-districts-heading">Top Districts</h1>
-        <ul
-          className="district-names-container"
-          testid="topDistrictsUnorderedList"
-        >
-          {topDistricts.map(eachDistrict => (
-            <li className="each-district-list" key={eachDistrict}>
-              <p className="each-district-name">{eachDistrict}</p>
-            </li>
-          ))}
-        </ul>
-        <GraphsData />
-
         <Footer />
       </div>
     )

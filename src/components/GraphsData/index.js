@@ -141,19 +141,38 @@ class GraphsData extends Component {
   renderBarGraph = () => {
     const {confirmedGraphData} = this.state
     return (
-      <BarChart width={1032} height={431} data={confirmedGraphData}>
-        <CartesianGrid strokeDasharray="" />
-        <XAxis dataKey="resultDate" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar
-          dataKey="count"
-          fill="#9A0E31"
-          className="bar"
-          label={{position: 'top', color: 'white'}}
-        />
-      </BarChart>
+      <>
+        <div className="bar-chart-container">
+          <BarChart width={1032} height={431} data={confirmedGraphData}>
+            <CartesianGrid strokeDasharray="" />
+            <XAxis dataKey="resultDate" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar
+              dataKey="count"
+              fill="#9A0E31"
+              className="bar"
+              label={{position: 'top', color: 'white'}}
+            />
+          </BarChart>
+        </div>
+        <div className="bar-chart-mobile-container">
+          <BarChart width={312} height={231} data={confirmedGraphData}>
+            <CartesianGrid strokeDasharray="" />
+            <XAxis dataKey="resultDate" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar
+              dataKey="count"
+              fill="#9A0E31"
+              className="bar"
+              label={{position: 'top', color: 'white'}}
+            />
+          </BarChart>
+        </div>
+      </>
     )
   }
 

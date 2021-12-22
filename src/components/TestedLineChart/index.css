@@ -1,8 +1,7 @@
 .tested-line-graph-container {
   width: 1146px;
   height: 328px;
-  left: 150px;
-  top: 1747px;
+
   color: #9673b9;
   background-color: #230f41;
   display: flex;
@@ -10,5 +9,31 @@
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  margin: 10px;
+  margin-bottom: 32px;
+}
+
+.tested-line-graph-mobile-container {
+  width: 312px;
+  height: 231px;
+
+  color: #9673b9;
+  background-color: #230f41;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+@media screen and (max-width: 762px) {
+  .tested-line-graph-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 762px) {
+  .tested-line-graph-mobile-container {
+    display: none;
+  }
 }
