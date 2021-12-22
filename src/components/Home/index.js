@@ -331,43 +331,43 @@ class Home extends Component {
               </button>
             </div>
           )}
-          <div className="search-align">
-            <div className="search-container">
-              <BsSearch className="search-icon" />
-              <input
-                type="search"
-                className="search-input"
-                placeholder="Enter the state"
-                onChange={this.changeSearchInput}
-              />
-            </div>
-          </div>
-
-          <ul
-            className="drop-down-items-container"
-            testid="searchResultsUnorderedList"
-          >
-            {dropDownList.map(eachState => (
-              <StatesDropDown
-                dropDownDetails={eachState}
-                key={eachState.stateCode}
-              />
-            ))}
-          </ul>
-
-          <TotalData
-            totalConfirmed={totalConfirmed}
-            totalActive={totalActive}
-            totalRecovered={totalRecovered}
-            totalDeceased={totalDeceased}
-          />
-          <StatewiseDetails
-            eachStateDataList={eachStateDataList}
-            changeToAscending={this.changeToAscending}
-            changeToDescending={this.changeToDescending}
-          />
-          <Footer />
         </div>
+        <div className="search-align">
+          <div className="search-container">
+            <BsSearch className="search-icon" />
+            <input
+              type="search"
+              className="search-input"
+              placeholder="Enter the state"
+              onChange={this.changeSearchInput}
+            />
+          </div>
+        </div>
+
+        <ul
+          className="drop-down-items-container"
+          testid="searchResultsUnorderedList"
+        >
+          {dropDownList.map(eachState => (
+            <StatesDropDown
+              dropDownDetails={eachState}
+              key={eachState.stateCode}
+            />
+          ))}
+        </ul>
+
+        <TotalData
+          totalConfirmed={totalConfirmed}
+          totalActive={totalActive}
+          totalRecovered={totalRecovered}
+          totalDeceased={totalDeceased}
+        />
+        <StatewiseDetails
+          eachStateDataList={eachStateDataList}
+          changeToAscending={this.changeToAscending}
+          changeToDescending={this.changeToDescending}
+        />
+        <Footer />
       </div>
     )
   }

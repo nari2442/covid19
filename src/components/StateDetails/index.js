@@ -1,6 +1,7 @@
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
-
+import {AiFillCloseCircle} from 'react-icons/ai'
 import './index.css'
 import Header from '../Header'
 import Footer from '../Footer'
@@ -172,6 +173,7 @@ class StateDetails extends Component {
     activeStateCode: '',
     totalCasesDetails: [],
     topDistricts: [],
+    hideNavContent: true,
     activeStatus: statusConstants.initial,
 
     lastUpdateDate: '',
@@ -179,6 +181,14 @@ class StateDetails extends Component {
 
   componentDidMount() {
     this.getStateDetails()
+  }
+
+  showOrHideNavContent = () => {
+    this.setState(prevState => ({hideNavContent: !prevState.hideNavContent}))
+  }
+
+  clickCloseButton = () => {
+    this.setState(prevState => ({hideNavContent: !prevState.hideNavContent}))
   }
 
   getStateDetails = async () => {
@@ -247,23 +257,42 @@ class StateDetails extends Component {
 
   renderSuccessView = () => {
     const {
-      activeStateCode,
       totalCasesDetails,
       topDistricts,
-      confirmedGraphData,
-      activeGraphData,
-      recoveredGraphData,
-      deceasedGraphData,
-      testedGraphData,
-      vaccinatedGraphData,
+
       lastUpdateDate,
+      hideNavContent,
     } = this.state
 
     const {confirmed, recovered, deceased, name, tested} = totalCasesDetails[0]
     const active = confirmed - recovered - deceased
     return (
       <div className="state-details-container">
-        <Header />
+        <Header showOrHideNavContent={this.showOrHideNavContent} />
+        <div>
+          {hideNavContent ? (
+            ''
+          ) : (
+            <div className="mobile-nav-content-container">
+              <div className="mobile-nav-content-items">
+                <Link to="/" className="link-item">
+                  <p className="mobile-home-text">Home</p>
+                </Link>
+                <Link to="/about" className="link-item">
+                  <p className="mobile-about-text">About</p>
+                </Link>
+              </div>
+
+              <button
+                type="button"
+                className="close-button"
+                onClick={this.clickCloseButton}
+              >
+                <AiFillCloseCircle className="close-icon" />
+              </button>
+            </div>
+          )}
+        </div>
         <div className="state-details-content">
           <div className="name-tested-container">
             <div className="name-lastupdated-container">
